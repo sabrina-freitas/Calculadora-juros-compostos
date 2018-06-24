@@ -1,0 +1,121 @@
+<html>
+
+    <head>
+        <title>calculadora</title>
+        <meta charset="utf-8" />
+        <style>
+            body {
+                background-color: #ddd;
+            }
+            button {
+            }
+            input {
+                font-size: 35px;
+                width: 300px;
+                height:50px;
+            }
+            p {
+                text-align: center;
+                background-color:#d9d9d9;
+                font-size: 35px;
+            }
+            h1 {
+                background-color:#d9d9d9;
+                font-size: 50px;
+            }
+            table {
+                width:100%;
+                height:100%;
+            }
+            #resultado {
+                background-color: #999;
+                font-size: 35px;
+            }
+        </style>
+        <script>
+            /*  
+
+    M = C.(1+T)TEM
+
+    SENDO:
+
+    M = MONTANTE OU VALOR FINAL  
+
+    C = CAPITAL INICIAL
+
+    T = TAXA DE JUROS
+
+    TEM= TEMPO*/
+
+            function calculo() {
+                var m = 0;
+                var c = document.getElementById("c").value;
+                var t = document.getElementById("t").value;
+                var tem = document.getElementById("tem").value;
+
+                var t = t / 100;
+                console.log(t);
+
+                var x = (1 + t);
+
+                for (var i = 0; i < tem; i++) {
+                    m++;
+                    var multiplicacao = Math.pow(x, m);
+                    console.log(multiplicacao);
+
+                    var rc = c * multiplicacao;
+
+                    document.getElementById("resultado").innerHTML += "resultado foi :" + rc.toFixed(2) + "<br>" + "<br>"
+
+                }
+            }
+        </script>
+
+    </head>
+    <center>
+
+        <body>
+
+            <table border="17" align="center">
+
+
+                <th>
+                    <h1>calculadora de juros composto</h1>
+                </th>
+
+
+                <tr>
+                    <td>
+                        <p>DIGITE O CAPITAL INICIAL</p>
+                        <center><input type="text" id="c" /></center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p>DIGITE A TAXA DE JUROS</p>
+                        <center><input type="text" id="t" /></center>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <p>DIGITE QUANTIDADE DE MESES</p>
+                        <center><input type="text" id="tem" /></center>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <center><input id="cl" type="button" value="calcular" onclick="calculo();"></center>
+                    </td>
+                </tr>
+
+
+                <tr><td><center><p id="resultado"></p></center></td></tr>
+            </table>
+        </body>
+    </center>
+
+</html>
